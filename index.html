@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Harian — Blog Pribadi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --surface: #ffffff;
+      --text: #1f1d1a;
+      --muted: #6b665e;
+      --border: #e7e3dc;
+      --accent: #b4532a;
+      --accent-soft: #f6e7df;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #161513;
+        --surface: #1f1d1a;
+        --text: #ece8e1;
+        --muted: #a39d93;
+        --border: #34312c;
+        --accent: #e58a5f;
+        --accent-soft: #3a2a22;
+        --shadow: none;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #161513;
+      --surface: #1f1d1a;
+      --text: #ece8e1;
+      --muted: #a39d93;
+      --border: #34312c;
+      --accent: #e58a5f;
+      --accent-soft: #3a2a22;
+      --shadow: none;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.65;
+      transition: background .2s, color .2s;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+    .logo { font-family: "Lora", serif; font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 18px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .theme-btn {
+      border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1rem;
+    }
+
+    /* Hero */
+    .hero { padding: 64px 0 40px; display: flex; gap: 24px; align-items: center; }
+    .avatar {
+      flex: 0 0 88px; height: 88px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #e9b44c);
+      display: grid; place-items: center;
+      color: #fff; font-family: "Lora", serif; font-size: 2rem; font-weight: 700;
+    }
+    .hero h1 { font-family: "Lora", serif; font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 6px; line-height: 1.2; }
+    .hero p { margin: 0; color: var(--muted); }
+
+    /* Filter */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 28px; }
+    .chip {
+      border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+      padding: 6px 14px; border-radius: 999px; font-size: .85rem; cursor: pointer; font-family: inherit;
+    }
+    .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .search {
+      width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); font: inherit; margin-bottom: 14px;
+    }
+    .search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+    /* Posts */
+    .section-title { font-family: "Lora", serif; font-size: 1.4rem; margin: 0 0 14px; }
+    .posts { display: grid; gap: 16px; }
+    .post {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 22px; box-shadow: var(--shadow); cursor: pointer;
+      transition: transform .15s, border-color .15s;
+    }
+    .post:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .meta { font-size: .8rem; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .tag { background: var(--accent-soft); color: var(--accent); padding: 2px 10px; border-radius: 999px; font-weight: 600; }
+    .post h3 { font-family: "Lora", serif; font-size: 1.25rem; margin: 10px 0 6px; line-height: 1.3; }
+    .post p { margin: 0; color: var(--muted); }
+    .read-more { display: inline-block; margin-top: 12px; font-weight: 600; font-size: .9rem; color: var(--accent); }
+    .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+    /* Article view */
+    .article { display: none; padding: 40px 0 20px; }
+    .article.show { display: block; }
+    .back { background: none; border: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; padding: 0; margin-bottom: 24px; }
+    .article h1 { font-family: "Lora", serif; font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.2; margin: 12px 0 24px; }
+    .article .body p { font-size: 1.06rem; margin: 0 0 1.2em; }
+    .article .body blockquote {
+      margin: 1.5em 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--accent);
+      font-family: "Lora", serif; font-style: italic; font-size: 1.15rem; color: var(--muted);
+    }
+
+    /* About */
+    .about {
+      margin: 56px 0; padding: 28px; border-radius: 14px;
+      background: var(--accent-soft); border: 1px solid var(--border);
+    }
+    .about h2 { font-family: "Lora", serif; margin: 0 0 8px; }
+    .about p { margin: 0 0 12px; }
+    .socials { display: flex; gap: 14px; flex-wrap: wrap; }
+    .socials a { font-weight: 600; text-decoration: none; }
+
+    footer { border-top: 1px solid var(--border); padding: 24px 0 40px; color: var(--muted); font-size: .85rem; text-align: center; }
+
+    @media (max-width: 560px) {
+      .hero { flex-direction: column; align-items: flex-start; padding-top: 40px; }
+      .nav-links a.hide-sm { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="#" class="logo" onclick="showList(); return false;">Catatan<span>Harian</span></a>
+      <nav class="nav-links">
+        <a href="#tulisan" onclick="showList()">Tulisan</a>
+        <a href="#tentang" class="hide-sm" onclick="showList()">Tentang</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Ganti tema">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Daftar tulisan -->
+    <div id="listView">
+      <section class="hero">
+        <div class="avatar">N</div>
+        <div>
+          <h1>Halo, saya Nama Anda 👋</h1>
+          <p>Menulis tentang belajar, teknologi, perjalanan, dan hal-hal kecil yang membuat hidup lebih bermakna.</p>
+        </div>
+      </section>
+
+      <section id="tulisan">
+        <h2 class="section-title">Tulisan Terbaru</h2>
+        <input type="search" class="search" id="search" placeholder="Cari tulisan…">
+        <div class="filters" id="filters"></div>
+        <div class="posts" id="posts"></div>
+      </section>
+
+      <section class="about" id="tentang">
+        <h2>Tentang Saya</h2>
+        <p>Saya seorang pembelajar seumur hidup yang suka berbagi cerita dan pengalaman. Blog ini adalah ruang pribadi saya untuk mencatat ide, refleksi, dan pelajaran yang saya temui setiap hari.</p>
+        <div class="socials">
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="mailto:email@contoh.com">Email</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tampilan artikel -->
+    <article class="article" id="articleView">
+      <button class="back" onclick="showList()">← Kembali ke semua tulisan</button>
+      <div class="meta" id="articleMeta"></div>
+      <h1 id="articleTitle"></h1>
+      <div class="body" id="articleBody"></div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Nama Anda · Dibuat dengan ❤️ dan secangkir kopi</div>
+  </footer>
+
+  <script>
+    // ====== Ubah atau tambahkan tulisan Anda di sini ======
+    const posts = [
+      {
+        title: "Memulai Kebiasaan Menulis Setiap Hari",
+        date: "2026-11-05",
+        tag: "Refleksi",
+        excerpt: "Menulis 15 menit sehari ternyata mengubah cara saya berpikir. Inilah yang saya pelajari setelah 30 hari.",
+        body: [
+          "Sebulan yang lalu, saya memutuskan untuk menulis setiap hari, meski hanya 15 menit. Awalnya terasa berat, tetapi lama-kelamaan menjadi bagian alami dari rutinitas pagi saya.",
+          "> Menulis bukan tentang hasil yang sempurna, tapi tentang kebiasaan untuk terus hadir.",
+          "Hal terbesar yang saya rasakan adalah pikiran menjadi lebih jernih. Ide-ide yang dulu berserakan kini lebih mudah saya susun.",
+          "Jika Anda ingin mencoba, mulailah dari yang kecil. Satu paragraf pun sudah cukup."
+        ]
+      },
+      {
+        title: "5 Tips Belajar Pemrograman untuk Pemula",
+        date: "2026-10-28",
+        tag: "Teknologi",
+        excerpt: "Belajar coding bisa terasa membingungkan. Berikut lima tips praktis yang membantu saya di awal perjalanan.",
+        body: [
+          "Pertama, pilih satu bahasa dan tekuni. Jangan melompat-lompat di antara banyak bahasa di awal.",
+          "Kedua, buat proyek kecil sesegera mungkin. Teori penting, tetapi praktik membuat pemahaman melekat.",
+          "Ketiga, jangan takut error. Pesan error adalah guru terbaik Anda.",
+          "Keempat, bergabunglah dengan komunitas. Belajar bersama jauh lebih menyenangkan.",
+          "Kelima, konsisten lebih penting daripada intens. Satu jam setiap hari lebih baik dari tujuh jam sekali seminggu."
+        ]
+      },
+      {
+        title: "Akhir Pekan di Dieng: Kabut, Telaga, dan Kentang Goreng",
+        date: "2026-10-14",
+        tag: "Perjalanan",
+        excerpt: "Catatan perjalanan singkat ke dataran tinggi Dieng — dingin, berkabut, dan penuh kejutan.",
+        body: [
+          "Kami berangkat dini hari dan tiba saat matahari mulai menembus kabut. Udara dinginnya langsung menyambut.",
+          "Telaga Warna menjadi tempat favorit saya. Warnanya berubah-ubah tergantung cahaya matahari.",
+          "> Kadang perjalanan terbaik adalah yang direncanakan paling sederhana.",
+          "Jangan lupa mencicipi kentang goreng khas Dieng dan purwaceng hangat. Sempurna untuk cuaca dingin."
+        ]
+      },
+      {
+        title: "Mengelola Waktu Saat Kuliah dan Bekerja",
+        date: "2026-09-30",
+        tag: "Produktivitas",
+        excerpt: "Bagaimana saya membagi waktu antara kuliah, pekerjaan, dan waktu istirahat tanpa merasa kewalahan.",
+        body: [
+          "Menjalani kuliah sambil bekerja mengajarkan saya satu hal: waktu adalah sumber daya paling berharga.",
+          "Saya menggunakan metode time-blocking — membagi hari menjadi blok-blok untuk tugas tertentu.",
+          "Yang tak kalah penting adalah menjadwalkan istirahat. Produktivitas tanpa jeda hanya akan berujung kelelahan."
+        ]
+      },
+      {
+        title: "Buku yang Mengubah Cara Pandang Saya Tahun Ini",
+        date: "2026-09-12",
+        tag: "Refleksi",
+        excerpt: "Tiga buku yang saya baca tahun ini dan pelajaran penting dari masing-masing.",
+        body: [
+          "Membaca selalu menjadi pelarian sekaligus sumber inspirasi bagi saya. Tahun ini ada tiga buku yang benar-benar membekas.",
+          "Buku pertama mengajarkan tentang kebiasaan kecil yang berdampak besar. Buku kedua tentang menerima ketidaksempurnaan. Buku ketiga tentang pentingnya rasa ingin tahu.",
+          "Apa buku favorit Anda tahun ini? Saya selalu mencari rekomendasi baru."
+        ]
+      }
+    ];
+    // ======================================================
+
+    const $ = id => document.getElementById(id);
+    let activeTag = "Semua";
+
+    const fmtDate = d => new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+    const readTime = p => Math.max(1, Math.round(p.body.join(" ").split(/\s+/).length / 200)) + " menit baca";
+
+    function renderFilters() {
+      const tags = ["Semua", ...new Set(posts.map(p => p.tag))];
+      $("filters").innerHTML = tags.map(t =>
+        `<button class="chip ${t === activeTag ? "active" : ""}" data-tag="${t}">${t}</button>`
+      ).join("");
+      $("filters").querySelectorAll(".chip").forEach(btn =>
+        btn.onclick = () => { activeTag = btn.dataset.tag; renderFilters(); renderPosts(); }
+      );
+    }
+
+    function renderPosts() {
+      const q = $("search").value.toLowerCase().trim();
+      const list = posts
+        .map((p, i) => ({ ...p, i }))
+        .filter(p => activeTag === "Semua" || p.tag === activeTag)
+        .filter(p => !q || (p.title + " " + p.excerpt).toLowerCase().includes(q))
+        .sort((a, b) => b.date.localeCompare(a.date));
+
+      $("posts").innerHTML = list.length ? list.map(p => `
+        <div class="post" data-i="${p.i}">
+          <div class="meta"><span class="tag">${p.tag}</span><span>${fmtDate(p.date)}</span><span>· ${readTime(p)}</span></div>
+          <h3>${p.title}</h3>
+          <p>${p.excerpt}</p>
+          <span class="read-more">Baca selengkapnya →</span>
+        </div>`).join("") : `<div class="empty">Tidak ada tulisan yang cocok.</div>`;
+
+      $("posts").querySelectorAll(".post").forEach(el => el.onclick = () => openPost(+el.dataset.i));
+    }
+
+    function openPost(i) {
+      const p = posts[i];
+      $("articleMeta").innerHTML = `<span class="tag">${p.tag}</span><span>${fmtDate(p.date)}</span><span>· ${readTime(p)}</span>`;
+      $("articleTitle").textContent = p.title;
+      $("articleBody").innerHTML = p.body.map(par =>
+        par.startsWith("> ") ? `<blockquote>${par.slice(2)}</blockquote>` : `<p>${par}</p>`
+      ).join("");
+      $("listView").style.display = "none";
+      $("articleView").classList.add("show");
+      window.scrollTo({ top: 0 });
+    }
+
+    function showList() {
+      $("articleView").classList.remove("show");
+      $("listView").style.display = "block";
+    }
+
+    // Tema terang/gelap
+    const root = document.documentElement;
+    const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    const updateIcon = () => $("themeBtn").textContent = isDark() ? "☀️" : "🌙";
+    try { const saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
+    $("themeBtn").onclick = () => {
+      root.dataset.theme = isDark() ? "light" : "dark";
+      try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+      updateIcon();
+    };
+
+    $("search").oninput = renderPosts;
+    $("year").textContent = new Date().getFullYear();
+    updateIcon();
+    renderFilters();
+    renderPosts();
+  </script>
+</body>
+</html>
