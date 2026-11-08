@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catatan Harian — Blog Pribadi</title>
+  <meta name="description" content="Catatan tentang ekologi terumbu karang, penelitian lapangan, dan terumbu karang buatan.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -116,6 +117,7 @@
     .article.show { display: block; }
     .back { background: none; border: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; padding: 0; margin-bottom: 24px; }
     .article h1 { font-family: "Lora", serif; font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.2; margin: 12px 0 24px; }
+    .article .body h2 { font-family: "Lora", serif; font-size: 1.35rem; line-height: 1.3; margin: 1.8em 0 .6em; }
     .article .body p { font-size: 1.06rem; margin: 0 0 1.2em; }
     .article .body blockquote {
       margin: 1.5em 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--accent);
@@ -159,7 +161,7 @@
         <div class="avatar">N</div>
         <div>
           <h1>Halo, saya Nama Anda 👋</h1>
-          <p>Menulis tentang belajar, teknologi, perjalanan, dan hal-hal kecil yang membuat hidup lebih bermakna.</p>
+          <p>Menulis tentang ekologi terumbu karang, penelitian lapangan, dan upaya restorasi ekosistem laut Indonesia.</p>
         </div>
       </section>
 
@@ -172,7 +174,7 @@
 
       <section class="about" id="tentang">
         <h2>Tentang Saya</h2>
-        <p>Saya seorang pembelajar seumur hidup yang suka berbagi cerita dan pengalaman. Blog ini adalah ruang pribadi saya untuk mencatat ide, refleksi, dan pelajaran yang saya temui setiap hari.</p>
+        <p>Saya adalah peneliti dan pemerhati ekosistem terumbu karang. Blog ini menjadi ruang untuk berbagi catatan penelitian, pengalaman lapangan, dan gagasan tentang konservasi laut, agar ilmu tentang karang dapat dinikmati lebih banyak orang.</p>
         <div class="socials">
           <a href="#">Instagram</a>
           <a href="#">LinkedIn</a>
@@ -197,64 +199,66 @@
 
   <script>
     // ====== Ubah atau tambahkan tulisan Anda di sini ======
+    // Setiap baris di "body" adalah satu paragraf.
+    // Awali dengan "## " untuk subjudul, dan "> " untuk kutipan.
     const posts = [
       {
-        title: "Memulai Kebiasaan Menulis Setiap Hari",
-        date: "2026-11-05",
-        tag: "Refleksi",
-        excerpt: "Menulis 15 menit sehari ternyata mengubah cara saya berpikir. Inilah yang saya pelajari setelah 30 hari.",
+        title: "Ekologi Habitat Baru Ekosistem Karang",
+        date: "2026-11-08",
+        tag: "Ekologi",
+        excerpt: "Bagaimana kehidupan karang mulai tumbuh di permukaan yang benar-benar baru, mulai dari aliran lava hingga bangkai kapal, dan faktor apa saja yang menentukan keberhasilannya.",
         body: [
-          "Sebulan yang lalu, saya memutuskan untuk menulis setiap hari, meski hanya 15 menit. Awalnya terasa berat, tetapi lama-kelamaan menjadi bagian alami dari rutinitas pagi saya.",
-          "> Menulis bukan tentang hasil yang sempurna, tapi tentang kebiasaan untuk terus hadir.",
-          "Hal terbesar yang saya rasakan adalah pikiran menjadi lebih jernih. Ide-ide yang dulu berserakan kini lebih mudah saya susun.",
-          "Jika Anda ingin mencoba, mulailah dari yang kecil. Satu paragraf pun sudah cukup."
+          "Setiap kali muncul permukaan keras baru di laut, entah aliran lava yang mendingin, bangkai kapal yang tenggelam, atau struktur beton yang sengaja diturunkan, sebuah proses ekologi yang menarik dimulai. Permukaan yang semula kosong perlahan dihuni beragam organisme. Dalam kondisi yang tepat, permukaan itu bisa berkembang menjadi komunitas terumbu karang.",
+          "## Dari biofilm hingga koloni karang",
+          "Tahap pertama kolonisasi berlangsung sangat cepat. Dalam hitungan jam hingga hari, permukaan baru dilapisi biofilm, yaitu lapisan tipis bakteri, diatom, dan bahan organik. Biofilm ini penting karena menjadi sinyal kimia bagi larva berbagai organisme bentik untuk menempel.",
+          "Selanjutnya, alga filamen (turf algae) dan alga berkapur krustosa (crustose coralline algae atau CCA) mulai tumbuh. CCA punya peran khusus: banyak larva karang menggunakan senyawa dari CCA sebagai isyarat untuk menempel dan bermetamorfosis. Karena itu, keberadaan CCA sering menjadi indikator awal bahwa sebuah substrat baru cocok untuk rekrutmen karang.",
+          "Karang perintis biasanya berasal dari genus yang tumbuh cepat dan bereproduksi melimpah, seperti Pocillopora, Acropora, dan beberapa jenis Porites. Seiring waktu, struktur yang mereka bangun menambah kompleksitas habitat dan membuka ruang bagi spesies lain.",
+          "## Faktor penentu keberhasilan",
+          "Tidak semua habitat baru berkembang menjadi terumbu yang sehat. Faktor utama yang menentukan antara lain pasokan larva dari terumbu di sekitarnya (konektivitas), jenis dan tekstur substrat, intensitas cahaya dan kedalaman, tingkat sedimentasi, kualitas air, serta tekanan herbivori yang mengendalikan pertumbuhan alga.",
+          "> Habitat baru adalah laboratorium alami. Di sanalah kita bisa menyaksikan bagaimana sebuah ekosistem karang dirakit dari nol.",
+          "Herbivora seperti ikan kakatua (Scaridae), ikan baronang (Siganidae), dan bulu babi memegang peran penting. Tanpa mereka, alga dapat menguasai permukaan dan menghalangi larva karang untuk menempel.",
+          "## Mengapa ini penting",
+          "Memahami ekologi habitat baru membantu kita merancang upaya restorasi yang lebih efektif. Dengan mengetahui kapan, di mana, dan pada substrat seperti apa karang paling mudah berkoloni, intervensi seperti terumbu buatan dan transplantasi karang dapat ditempatkan secara lebih tepat."
         ]
       },
       {
-        title: "5 Tips Belajar Pemrograman untuk Pemula",
-        date: "2026-10-28",
-        tag: "Teknologi",
-        excerpt: "Belajar coding bisa terasa membingungkan. Berikut lima tips praktis yang membantu saya di awal perjalanan.",
+        title: "Penelitian Ekologi Karang: Metode dan Tantangan di Lapangan",
+        date: "2026-11-01",
+        tag: "Penelitian",
+        excerpt: "Mengenal metode yang umum dipakai untuk menilai kondisi terumbu karang, dari transek garis hingga foto bawah air, beserta tantangan nyata di lapangan.",
         body: [
-          "Pertama, pilih satu bahasa dan tekuni. Jangan melompat-lompat di antara banyak bahasa di awal.",
-          "Kedua, buat proyek kecil sesegera mungkin. Teori penting, tetapi praktik membuat pemahaman melekat.",
-          "Ketiga, jangan takut error. Pesan error adalah guru terbaik Anda.",
-          "Keempat, bergabunglah dengan komunitas. Belajar bersama jauh lebih menyenangkan.",
-          "Kelima, konsisten lebih penting daripada intens. Satu jam setiap hari lebih baik dari tujuh jam sekali seminggu."
+          "Indonesia berada di jantung Segitiga Karang (Coral Triangle), wilayah dengan keanekaragaman karang tertinggi di dunia. Kekayaan ini sekaligus menjadi tanggung jawab: kondisinya perlu dipantau secara berkala agar perubahan dapat terdeteksi sejak dini.",
+          "## Metode survei yang umum digunakan",
+          "Line Intercept Transect (LIT) adalah salah satu metode klasik. Peneliti membentangkan meteran di atas terumbu, lalu mencatat panjang setiap kategori bentik yang dilintasi garis, seperti karang hidup, karang mati, alga, pasir, dan patahan karang.",
+          "Point Intercept Transect (PIT) bekerja dengan prinsip serupa, tetapi pencatatan dilakukan pada titik-titik dengan jarak tetap. Metode ini lebih cepat sehingga cocok untuk survei di banyak lokasi.",
+          "Underwater Photo Transect (UPT) semakin banyak digunakan di Indonesia. Penyelam memotret bingkai kuadrat di sepanjang transek, lalu foto dianalisis di darat dengan perangkat lunak seperti CPCe. Keunggulannya, data tersimpan permanen dan dapat dianalisis ulang kapan saja.",
+          "Selain tutupan karang, penelitian ekologi juga mencakup sensus visual ikan karang, pengamatan invertebrata, pengukuran rekrutmen dengan settlement tile, pemantauan pemutihan karang (bleaching), serta pengukuran parameter lingkungan seperti suhu, salinitas, kecerahan, dan sedimentasi.",
+          "## Tantangan di lapangan",
+          "Penelitian bawah air punya keterbatasan yang tidak dijumpai di darat: waktu penyelaman terbatas, cuaca dan arus yang berubah-ubah, visibilitas rendah, hingga biaya logistik yang tinggi. Identifikasi karang sampai tingkat spesies juga membutuhkan keahlian khusus.",
+          "> Data yang baik lahir dari perencanaan yang matang. Lokasi, ulangan, dan metode harus konsisten agar hasilnya bisa dibandingkan dari waktu ke waktu.",
+          "## Arah penelitian ke depan",
+          "Ancaman terhadap terumbu karang, seperti pemanasan laut, penangkapan ikan yang merusak, sedimentasi, dan pencemaran, membuat penelitian ekologi karang semakin mendesak. Teknologi baru seperti fotogrametri 3D, analisis citra berbasis kecerdasan buatan, dan environmental DNA (eDNA) membuka peluang pemantauan yang lebih cepat dan luas."
         ]
       },
       {
-        title: "Akhir Pekan di Dieng: Kabut, Telaga, dan Kentang Goreng",
-        date: "2026-10-14",
-        tag: "Perjalanan",
-        excerpt: "Catatan perjalanan singkat ke dataran tinggi Dieng — dingin, berkabut, dan penuh kejutan.",
+        title: "Penelitian Terumbu Karang Buatan: Desain, Material, dan Pemantauan",
+        date: "2026-10-25",
+        tag: "Terumbu Buatan",
+        excerpt: "Terumbu buatan bisa menjadi alat restorasi yang efektif, asalkan dirancang dan dipantau dengan benar. Inilah hal-hal yang perlu diperhatikan.",
         body: [
-          "Kami berangkat dini hari dan tiba saat matahari mulai menembus kabut. Udara dinginnya langsung menyambut.",
-          "Telaga Warna menjadi tempat favorit saya. Warnanya berubah-ubah tergantung cahaya matahari.",
-          "> Kadang perjalanan terbaik adalah yang direncanakan paling sederhana.",
-          "Jangan lupa mencicipi kentang goreng khas Dieng dan purwaceng hangat. Sempurna untuk cuaca dingin."
-        ]
-      },
-      {
-        title: "Mengelola Waktu Saat Kuliah dan Bekerja",
-        date: "2026-09-30",
-        tag: "Produktivitas",
-        excerpt: "Bagaimana saya membagi waktu antara kuliah, pekerjaan, dan waktu istirahat tanpa merasa kewalahan.",
-        body: [
-          "Menjalani kuliah sambil bekerja mengajarkan saya satu hal: waktu adalah sumber daya paling berharga.",
-          "Saya menggunakan metode time-blocking — membagi hari menjadi blok-blok untuk tugas tertentu.",
-          "Yang tak kalah penting adalah menjadwalkan istirahat. Produktivitas tanpa jeda hanya akan berujung kelelahan."
-        ]
-      },
-      {
-        title: "Buku yang Mengubah Cara Pandang Saya Tahun Ini",
-        date: "2026-09-12",
-        tag: "Refleksi",
-        excerpt: "Tiga buku yang saya baca tahun ini dan pelajaran penting dari masing-masing.",
-        body: [
-          "Membaca selalu menjadi pelarian sekaligus sumber inspirasi bagi saya. Tahun ini ada tiga buku yang benar-benar membekas.",
-          "Buku pertama mengajarkan tentang kebiasaan kecil yang berdampak besar. Buku kedua tentang menerima ketidaksempurnaan. Buku ketiga tentang pentingnya rasa ingin tahu.",
-          "Apa buku favorit Anda tahun ini? Saya selalu mencari rekomendasi baru."
+          "Terumbu karang buatan adalah struktur yang sengaja ditempatkan di dasar laut untuk menyediakan substrat keras bagi penempelan karang dan habitat bagi ikan serta biota lain. Di Indonesia, terumbu buatan banyak dipakai untuk merehabilitasi terumbu yang rusak, meningkatkan sumber daya perikanan, hingga mengembangkan wisata selam.",
+          "## Ragam material dan desain",
+          "Beberapa jenis yang sering dijumpai antara lain modul beton (termasuk bentuk kubah berlubang seperti reef ball), rangka besi berlapis bahan antikarat sebagai media transplantasi, struktur keramik atau tanah liat, serta teknologi biorock yang memanfaatkan arus listrik lemah untuk mempercepat pengendapan mineral kapur pada rangka logam.",
+          "Pengalaman di berbagai negara juga memberi pelajaran penting. Ban bekas yang dipakai sebagai terumbu buatan, misalnya, terbukti gagal di beberapa lokasi: ban terlepas, terbawa arus, dan justru merusak terumbu alami di sekitarnya. Material yang stabil, tidak beracun, dan tahan lama menjadi syarat utama.",
+          "Desain struktur sangat memengaruhi keberhasilan. Permukaan yang kasar dan bertekstur, rongga dengan berbagai ukuran, serta kompleksitas tiga dimensi (rugositas) terbukti meningkatkan penempelan larva dan menarik lebih banyak ikan.",
+          "## Pemilihan lokasi",
+          "Struktur yang baik bisa gagal jika ditempatkan di lokasi yang salah. Hal yang perlu dipertimbangkan meliputi kedalaman dan penetrasi cahaya, kekuatan arus dan gelombang, tingkat sedimentasi, jenis dasar perairan, kedekatan dengan terumbu alami sebagai sumber larva, serta dukungan masyarakat setempat.",
+          "## Bagaimana mengukur keberhasilan?",
+          "Penelitian terumbu buatan idealnya membandingkan kondisi sebelum dan sesudah pemasangan, sekaligus membandingkan lokasi terumbu buatan dengan lokasi kontrol, misalnya dengan desain BACI (Before-After-Control-Impact). Parameter yang dipantau antara lain kelangsungan hidup dan laju pertumbuhan karang, rekrutmen karang alami, tutupan biota, serta kelimpahan dan keanekaragaman ikan.",
+          "Salah satu pertanyaan penting adalah apakah terumbu buatan benar-benar meningkatkan produksi ikan, atau hanya mengumpulkan ikan dari area sekitarnya. Perdebatan ini dikenal sebagai attraction versus production, dan jawabannya bergantung pada spesies, desain, dan kondisi lokasi.",
+          "> Terumbu buatan adalah alat bantu, bukan pengganti. Melindungi terumbu alami tetap menjadi langkah konservasi yang paling penting.",
+          "## Penutup",
+          "Dengan perencanaan yang cermat, pemantauan jangka panjang, dan keterlibatan masyarakat, terumbu karang buatan dapat menjadi bagian penting dari upaya memulihkan ekosistem pesisir Indonesia."
         ]
       }
     ];
@@ -300,6 +304,7 @@
       $("articleMeta").innerHTML = `<span class="tag">${p.tag}</span><span>${fmtDate(p.date)}</span><span>· ${readTime(p)}</span>`;
       $("articleTitle").textContent = p.title;
       $("articleBody").innerHTML = p.body.map(par =>
+        par.startsWith("## ") ? `<h2>${par.slice(3)}</h2>` :
         par.startsWith("> ") ? `<blockquote>${par.slice(2)}</blockquote>` : `<p>${par}</p>`
       ).join("");
       $("listView").style.display = "none";
