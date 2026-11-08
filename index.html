@@ -8,36 +8,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* Tema biru laut */
     :root {
-      --bg: #fbfaf7;
+      --bg: #f4f9fb;
       --surface: #ffffff;
-      --text: #1f1d1a;
-      --muted: #6b665e;
-      --border: #e7e3dc;
-      --accent: #b4532a;
-      --accent-soft: #f6e7df;
-      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04);
+      --text: #0f2430;
+      --muted: #56707e;
+      --border: #d8e6ed;
+      --accent: #0a6a92;
+      --accent-2: #22b0c2;
+      --accent-soft: #e0f0f7;
+      --on-accent: #ffffff;
+      --shadow: 0 1px 2px rgba(8,50,70,.05), 0 4px 16px rgba(8,50,70,.06);
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #161513;
-        --surface: #1f1d1a;
-        --text: #ece8e1;
-        --muted: #a39d93;
-        --border: #34312c;
-        --accent: #e58a5f;
-        --accent-soft: #3a2a22;
+        --bg: #0a1822;
+        --surface: #10232e;
+        --text: #e2eef3;
+        --muted: #92abb8;
+        --border: #1e3a49;
+        --accent: #52bde0;
+        --accent-2: #2a8fb0;
+        --accent-soft: #123447;
+        --on-accent: #04202d;
         --shadow: none;
       }
     }
     :root[data-theme="dark"] {
-      --bg: #161513;
-      --surface: #1f1d1a;
-      --text: #ece8e1;
-      --muted: #a39d93;
-      --border: #34312c;
-      --accent: #e58a5f;
-      --accent-soft: #3a2a22;
+      --bg: #0a1822;
+      --surface: #10232e;
+      --text: #e2eef3;
+      --muted: #92abb8;
+      --border: #1e3a49;
+      --accent: #52bde0;
+      --accent-2: #2a8fb0;
+      --accent-soft: #123447;
+      --on-accent: #04202d;
       --shadow: none;
     }
 
@@ -76,7 +83,7 @@
     .hero { padding: 64px 0 40px; display: flex; gap: 24px; align-items: center; }
     .avatar {
       flex: 0 0 88px; height: 88px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #e9b44c);
+      background: linear-gradient(135deg, #0a6a92, #22b0c2);
       display: grid; place-items: center;
       color: #fff; font-family: "Lora", serif; font-size: 2rem; font-weight: 700;
     }
@@ -89,7 +96,7 @@
       border: 1px solid var(--border); background: var(--surface); color: var(--muted);
       padding: 6px 14px; border-radius: 999px; font-size: .85rem; cursor: pointer; font-family: inherit;
     }
-    .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .chip.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .search {
       width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
       background: var(--surface); color: var(--text); font: inherit; margin-bottom: 14px;
@@ -158,9 +165,9 @@
     <!-- Daftar tulisan -->
     <div id="listView">
       <section class="hero">
-        <div class="avatar">N</div>
+        <div class="avatar">H</div>
         <div>
-          <h1>Halo, saya Nama Anda 👋</h1>
+          <h1>Halo, saya HAN 👋</h1>
           <p>Menulis tentang ekologi terumbu karang, penelitian lapangan, dan upaya restorasi ekosistem laut Indonesia.</p>
         </div>
       </section>
@@ -194,7 +201,7 @@
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Nama Anda · Dibuat dengan ❤️ dan secangkir kopi</div>
+    <div class="wrap">© <span id="year"></span> HAN · Dibuat dengan ❤️ dan secangkir kopi</div>
   </footer>
 
   <script>
@@ -202,6 +209,90 @@
     // Setiap baris di "body" adalah satu paragraf.
     // Awali dengan "## " untuk subjudul, dan "> " untuk kutipan.
     const posts = [
+      {
+        title: "Karang Resilien: Kemampuan Terumbu untuk Bangkit Kembali",
+        date: "2026-11-08",
+        tag: "Ekologi",
+        excerpt: "Terumbu yang resilien belum tentu kebal terhadap gangguan, tetapi mampu pulih setelahnya. Apa saja yang membuat terumbu bisa bangkit kembali?",
+        body: [
+          "Dalam ekologi terumbu karang, resiliensi berarti kemampuan karang atau sebuah ekosistem terumbu untuk pulih setelah mengalami gangguan, seperti pemutihan massal, badai, atau ledakan populasi bintang laut berduri (Acanthaster). Terumbu yang resilien bisa saja rusak parah, tetapi kemudian kembali ke kondisi yang didominasi karang.",
+          "## Resisten dan resilien itu berbeda",
+          "Resistensi adalah kemampuan untuk bertahan tanpa banyak mengalami kerusakan. Resiliensi adalah kemampuan untuk pulih setelah rusak. Sebuah terumbu bisa memiliki resistensi rendah (banyak karang memutih dan mati) tetapi resiliensi tinggi (tutupan karang kembali pulih dalam beberapa tahun). Keduanya sama-sama penting dan saling melengkapi.",
+          "## Faktor yang mendukung pemulihan",
+          "Rekrutmen karang adalah kunci utama. Terumbu hanya bisa pulih jika ada pasokan larva, baik dari koloni yang selamat di lokasi tersebut maupun dari terumbu lain yang terhubung oleh arus. Karena itu, konektivitas antarterumbu sangat menentukan.",
+          "Herbivori juga berperan besar. Ikan herbivora dan bulu babi menjaga alga tetap pendek sehingga tersedia ruang bagi larva karang untuk menempel. Ketika herbivora hilang akibat penangkapan berlebih, alga dapat mendominasi dan pemulihan karang terhambat.",
+          "Faktor lainnya adalah kualitas air yang baik, sedimentasi rendah, keanekaragaman spesies dan genetik yang tinggi, serta struktur fisik terumbu yang masih utuh sebagai tempat penempelan.",
+          "> Kita tidak bisa menghentikan gelombang panas laut dalam semalam, tetapi kita bisa mengurangi tekanan lokal agar terumbu punya peluang lebih besar untuk pulih.",
+          "## Ketika resiliensi hilang",
+          "Jika gangguan datang terlalu sering atau tekanan lokal terlalu berat, terumbu dapat mengalami pergeseran fase (phase shift), yaitu perubahan dari ekosistem yang didominasi karang menjadi didominasi alga makro. Kondisi ini sering kali sulit dibalikkan.",
+          "## Pengelolaan berbasis resiliensi",
+          "Pendekatan pengelolaan modern berupaya menjaga dan meningkatkan resiliensi terumbu, antara lain dengan menetapkan kawasan konservasi perairan, melindungi ikan herbivora, mengurangi limpasan sedimen dan nutrien dari darat, serta melindungi terumbu yang berperan sebagai sumber larva bagi wilayah sekitarnya."
+        ]
+      },
+      {
+        title: "Karang Resisten: Mengapa Sebagian Karang Tahan Terhadap Panas?",
+        date: "2026-11-08",
+        tag: "Ekologi",
+        excerpt: "Saat pemutihan massal terjadi, selalu ada koloni yang tetap berwarna. Apa rahasia karang-karang yang lebih tahan terhadap stres panas?",
+        body: [
+          "Ketika gelombang panas laut melanda, pemandangan di terumbu sering kali tidak seragam. Di antara koloni yang memutih, ada koloni lain dari jenis yang sama yang tetap berwarna normal. Kemampuan untuk menahan stres tanpa memutih atau mati inilah yang disebut resistensi karang.",
+          "## Sumber resistensi",
+          "Jenis alga simbion sangat berpengaruh. Karang hidup bersama alga mikroskopis dari famili Symbiodiniaceae, dan beberapa kelompoknya, misalnya genus Durusdinium, dikenal lebih toleran terhadap suhu tinggi. Karang yang bersimbiosis dengan simbion tahan panas cenderung lebih jarang memutih.",
+          "Genetika karang inang juga berperan. Sebagian koloni memiliki gen yang membuat mereka lebih mampu menghasilkan protein pelindung, seperti heat shock protein dan senyawa antioksidan, yang menekan kerusakan sel saat suhu naik.",
+          "Bentuk pertumbuhan pun ikut menentukan. Secara umum, karang masif seperti Porites lebih tahan terhadap pemutihan dibandingkan karang bercabang seperti Acropora, antara lain karena jaringannya lebih tebal dan cadangan energinya lebih besar.",
+          "## Pengaruh riwayat lingkungan",
+          "Karang yang tumbuh di lingkungan dengan suhu yang sering berfluktuasi, misalnya rataan terumbu yang dangkal atau laguna yang memanas saat surut, sering menunjukkan toleransi panas yang lebih tinggi. Paparan stres ringan secara berulang tampaknya dapat 'melatih' karang untuk menghadapi stres yang lebih berat.",
+          "> Koloni yang tetap berwarna di tengah peristiwa pemutihan adalah petunjuk berharga tentang masa depan terumbu karang.",
+          "## Ada harga yang dibayar",
+          "Resistensi sering disertai kompromi. Karang yang bersimbiosis dengan simbion tahan panas, misalnya, dilaporkan cenderung tumbuh lebih lambat karena simbion tersebut memasok energi lebih sedikit dalam kondisi normal.",
+          "## Pemanfaatan dalam restorasi",
+          "Peneliti kini berupaya mengidentifikasi koloni yang resisten untuk dijadikan induk dalam program transplantasi dan pembibitan karang. Pendekatan lain yang sedang dikembangkan adalah assisted evolution, yaitu upaya mempercepat adaptasi karang terhadap suhu tinggi melalui seleksi atau pengkondisian. Meski menjanjikan, pendekatan ini tetap harus berjalan seiring dengan upaya mengurangi pemanasan global."
+        ]
+      },
+      {
+        title: "Transplantasi Karang: Dari Fragmen Kecil Menjadi Terumbu",
+        date: "2026-11-08",
+        tag: "Restorasi",
+        excerpt: "Transplantasi adalah salah satu teknik restorasi karang yang paling banyak digunakan. Bagaimana caranya, dan apa yang membuatnya berhasil?",
+        body: [
+          "Transplantasi karang adalah teknik memindahkan fragmen karang hidup dari koloni induk (donor) ke lokasi yang terumbunya rusak. Prinsipnya memanfaatkan kemampuan alami karang untuk tumbuh kembali dari potongan kecil, sesuatu yang memang terjadi di alam ketika cabang karang patah akibat ombak.",
+          "## Tahapan transplantasi",
+          "Pertama, memilih koloni donor yang sehat dan mengambil sebagian kecil fragmennya tanpa membahayakan koloni induk. Kedua, menempelkan fragmen pada media seperti substrat beton, rangka besi, atau tali, menggunakan pengikat kabel, lem epoksi, atau semen. Ketiga, menempatkan media tersebut di lokasi restorasi dan memantaunya secara berkala.",
+          "Banyak program kini menggunakan pendekatan coral gardening. Fragmen dibesarkan dulu di area pembibitan (nursery), misalnya pada rangka, tali, atau struktur berbentuk pohon di dalam air, hingga cukup besar. Setelah itu baru dipindahkan (outplanting) ke terumbu yang akan dipulihkan.",
+          "## Jenis karang yang dipilih",
+          "Karang bercabang seperti Acropora dan Pocillopora sering dipilih karena tumbuh cepat dan mudah difragmentasi. Untuk karang masif yang tumbuh lambat, dikembangkan teknik mikrofragmentasi, yaitu memotong karang menjadi potongan sangat kecil yang ternyata justru dapat tumbuh dengan cepat.",
+          "## Mengukur keberhasilan",
+          "Parameter yang umum dipantau meliputi tingkat kelangsungan hidup fragmen, laju pertumbuhan (misalnya pertambahan panjang atau luas koloni), kondisi kesehatan seperti tanda pemutihan atau penyakit, serta dampaknya terhadap komunitas ikan dan biota lain.",
+          "> Transplantasi yang berhasil bukan hanya soal berapa banyak fragmen yang ditanam, tetapi berapa banyak yang bertahan, tumbuh, dan akhirnya bereproduksi.",
+          "## Tantangan dan hal yang perlu diperhatikan",
+          "Beberapa tantangan utama adalah biaya dan skala, karena restorasi biasanya hanya mencakup area kecil dibandingkan luas terumbu yang rusak. Keanekaragaman genetik juga perlu dijaga: menggunakan donor dari banyak koloni berbeda lebih baik daripada memperbanyak satu koloni saja. Selain itu, penyebab kerusakan seperti penangkapan ikan yang merusak atau sedimentasi harus diatasi terlebih dahulu.",
+          "Karang termasuk biota yang dilindungi dan perdagangannya diatur secara internasional, sehingga pengambilan fragmen untuk transplantasi perlu mengikuti ketentuan dan izin dari otoritas terkait.",
+          "## Penutup",
+          "Dipadukan dengan pemilihan donor yang tepat, termasuk koloni yang terbukti tahan panas, serta pengelolaan kawasan yang baik, transplantasi karang dapat mempercepat pemulihan terumbu yang rusak."
+        ]
+      },
+      {
+        title: "Pemutihan Karang: Ketika Laut Terlalu Panas",
+        date: "2026-11-08",
+        tag: "Ekologi",
+        excerpt: "Pemutihan karang adalah salah satu ancaman terbesar bagi terumbu di seluruh dunia. Apa yang sebenarnya terjadi saat karang memutih, dan bisakah karang pulih?",
+        body: [
+          "Warna indah terumbu karang sebagian besar berasal dari alga mikroskopis yang hidup di dalam jaringan karang, dikenal sebagai zooxanthellae (famili Symbiodiniaceae). Alga ini berfotosintesis dan menyumbang sebagian besar energi yang dibutuhkan karang. Sebagai gantinya, karang memberi tempat tinggal dan nutrien.",
+          "## Apa yang terjadi saat karang memutih?",
+          "Ketika karang mengalami stres, hubungan simbiosis ini terganggu. Alga simbion keluar atau dikeluarkan dari jaringan karang, sehingga jaringan menjadi transparan dan kerangka kapur yang putih terlihat jelas. Inilah yang disebut pemutihan karang (coral bleaching).",
+          "Penting untuk diingat: karang yang memutih belum mati. Namun tanpa simbionnya, karang kehilangan sumber energi utama dan mulai 'kelaparan'.",
+          "## Penyebab utama",
+          "Pemicu terbesar adalah suhu laut yang lebih tinggi dari biasanya dan bertahan dalam waktu lama. Kenaikan sekitar 1°C di atas suhu maksimum bulanan rata-rata selama beberapa minggu sudah cukup untuk memicu pemutihan. Program NOAA Coral Reef Watch mengukur akumulasi stres panas ini dengan indikator Degree Heating Weeks (DHW).",
+          "Selain panas, pemutihan juga dapat dipicu oleh suhu terlalu dingin, penurunan salinitas akibat banjir air tawar, cahaya matahari berlebih, pencemaran, dan sedimentasi.",
+          "## Pemutihan massal global",
+          "Dalam beberapa dekade terakhir, pemutihan massal terjadi makin sering dan makin luas. Peristiwa global tercatat antara lain pada 1998, 2010, dan 2014–2017. Pada 2024, NOAA mengumumkan terjadinya peristiwa pemutihan massal global keempat, yang memengaruhi terumbu di banyak samudra.",
+          "> Pemutihan adalah sinyal bahaya dari terumbu karang: ekosistem ini sedang berada di batas kemampuannya.",
+          "## Bisakah karang pulih?",
+          "Jika stres berlangsung singkat dan suhu kembali normal, karang dapat memperoleh kembali alga simbionnya dan pulih dalam beberapa minggu hingga bulan. Namun jika stres berlangsung lama atau sangat parah, karang dapat mati. Karang yang selamat pun sering mengalami pertumbuhan dan reproduksi yang terganggu, serta lebih rentan terhadap penyakit.",
+          "## Memantau pemutihan",
+          "Pemantauan dapat dilakukan dengan survei persentase koloni yang memutih, pengamatan tingkat keparahan, atau menggunakan kartu warna seperti CoralWatch Coral Health Chart yang mudah dipakai, termasuk oleh masyarakat dan penyelam rekreasi. Data ini penting untuk memahami karang mana yang lebih tahan dan terumbu mana yang mampu pulih."
+        ]
+      },
       {
         title: "Ekologi Habitat Baru Ekosistem Karang",
         date: "2026-11-08",
