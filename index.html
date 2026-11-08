@@ -106,6 +106,11 @@
     /* Posts */
     .section-title { font-family: "Lora", serif; font-size: 1.4rem; margin: 0 0 14px; }
     .posts { display: grid; gap: 16px; }
+    .post-cover { display: block; width: calc(100% + 44px); margin: -22px -22px 16px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 13px 13px 0 0; background: var(--accent-soft); }
+    .article-cover { margin: 0 0 28px; }
+    .article-cover:empty { display: none; }
+    .article-cover img { display: block; width: 100%; max-height: 460px; object-fit: cover; border-radius: 14px; background: var(--accent-soft); }
+    .article-cover figcaption { font-size: .82rem; color: var(--muted); margin-top: 8px; }
     .post {
       background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
       padding: 22px; box-shadow: var(--shadow); cursor: pointer;
@@ -196,6 +201,7 @@
       <button class="back" onclick="showList()">← Kembali ke semua tulisan</button>
       <div class="meta" id="articleMeta"></div>
       <h1 id="articleTitle"></h1>
+    <figure class="article-cover" id="articleCover"></figure>
       <div class="body" id="articleBody"></div>
     </article>
   </main>
@@ -213,6 +219,9 @@
         title: "Karang Resilien: Kemampuan Terumbu untuk Bangkit Kembali",
         date: "2026-11-08",
         tag: "Ekologi",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Coral_in_Raja_Ampat.jpg/1280px-Coral_in_Raja_Ampat.jpg",
+        imageAlt: "Hamparan karang meja yang sehat di perairan dangkal Raja Ampat",
+        imageCredit: "Foto: Akbar raf / Wikimedia Commons (CC BY-SA 4.0)",
         excerpt: "Terumbu yang resilien belum tentu kebal terhadap gangguan, tetapi mampu pulih setelahnya. Apa saja yang membuat terumbu bisa bangkit kembali?",
         body: [
           "Dalam ekologi terumbu karang, resiliensi berarti kemampuan karang atau sebuah ekosistem terumbu untuk pulih setelah mengalami gangguan, seperti pemutihan massal, badai, atau ledakan populasi bintang laut berduri (Acanthaster). Terumbu yang resilien bisa saja rusak parah, tetapi kemudian kembali ke kondisi yang didominasi karang.",
@@ -233,6 +242,9 @@
         title: "Karang Resisten: Mengapa Sebagian Karang Tahan Terhadap Panas?",
         date: "2026-11-08",
         tag: "Ekologi",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Porites_lutea_in_Kapoposang_Island.jpg/1280px-Porites_lutea_in_Kapoposang_Island.jpg",
+        imageAlt: "Koloni karang masif Porites lutea di Pulau Kapoposang",
+        imageCredit: "Foto: Mudasir Zainuddin / Wikimedia Commons (CC BY-SA 4.0)",
         excerpt: "Saat pemutihan massal terjadi, selalu ada koloni yang tetap berwarna. Apa rahasia karang-karang yang lebih tahan terhadap stres panas?",
         body: [
           "Ketika gelombang panas laut melanda, pemandangan di terumbu sering kali tidak seragam. Di antara koloni yang memutih, ada koloni lain dari jenis yang sama yang tetap berwarna normal. Kemampuan untuk menahan stres tanpa memutih atau mati inilah yang disebut resistensi karang.",
@@ -253,6 +265,9 @@
         title: "Transplantasi Karang: Dari Fragmen Kecil Menjadi Terumbu",
         date: "2026-11-08",
         tag: "Restorasi",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Coral_Nursery_Tour_%2855490725002%29.jpg/1280px-Coral_Nursery_Tour_%2855490725002%29.jpg",
+        imageAlt: "Penyelam memeriksa fragmen karang yang digantung di rangka pembibitan",
+        imageCredit: "Foto: NOAA National Marine Sanctuaries / Wikimedia Commons (Domain publik)",
         excerpt: "Transplantasi adalah salah satu teknik restorasi karang yang paling banyak digunakan. Bagaimana caranya, dan apa yang membuatnya berhasil?",
         body: [
           "Transplantasi karang adalah teknik memindahkan fragmen karang hidup dari koloni induk (donor) ke lokasi yang terumbunya rusak. Prinsipnya memanfaatkan kemampuan alami karang untuk tumbuh kembali dari potongan kecil, sesuatu yang memang terjadi di alam ketika cabang karang patah akibat ombak.",
@@ -275,6 +290,9 @@
         title: "Pemutihan Karang: Ketika Laut Terlalu Panas",
         date: "2026-11-08",
         tag: "Ekologi",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Colorful_Coral_Bleaching.jpg/1280px-Colorful_Coral_Bleaching.jpg",
+        imageAlt: "Karang yang memutih dan berpendar warna-warni akibat stres panas",
+        imageCredit: "Foto: Ryan Goehrung / Wikimedia Commons (CC BY-SA 4.0)",
         excerpt: "Pemutihan karang adalah salah satu ancaman terbesar bagi terumbu di seluruh dunia. Apa yang sebenarnya terjadi saat karang memutih, dan bisakah karang pulih?",
         body: [
           "Warna indah terumbu karang sebagian besar berasal dari alga mikroskopis yang hidup di dalam jaringan karang, dikenal sebagai zooxanthellae (famili Symbiodiniaceae). Alga ini berfotosintesis dan menyumbang sebagian besar energi yang dibutuhkan karang. Sebagai gantinya, karang memberi tempat tinggal dan nutrien.",
@@ -297,6 +315,9 @@
         title: "Ekologi Habitat Baru Ekosistem Karang",
         date: "2026-11-08",
         tag: "Ekologi",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Artificial_fish_reef.jpg/1280px-Artificial_fish_reef.jpg",
+        imageAlt: "Struktur buatan di dasar laut yang mulai ditumbuhi biota dan dihuni ikan",
+        imageCredit: "Foto: Capsellanaut / Wikimedia Commons (CC BY-SA 4.0)",
         excerpt: "Bagaimana kehidupan karang mulai tumbuh di permukaan yang benar-benar baru, mulai dari aliran lava hingga bangkai kapal, dan faktor apa saja yang menentukan keberhasilannya.",
         body: [
           "Setiap kali muncul permukaan keras baru di laut, entah aliran lava yang mendingin, bangkai kapal yang tenggelam, atau struktur beton yang sengaja diturunkan, sebuah proses ekologi yang menarik dimulai. Permukaan yang semula kosong perlahan dihuni beragam organisme. Dalam kondisi yang tepat, permukaan itu bisa berkembang menjadi komunitas terumbu karang.",
@@ -316,6 +337,9 @@
         title: "Penelitian Ekologi Karang: Metode dan Tantangan di Lapangan",
         date: "2026-11-01",
         tag: "Penelitian",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/NOAA_diver_measures_coral_Rose_Atoll_2023.png/1280px-NOAA_diver_measures_coral_Rose_Atoll_2023.png",
+        imageAlt: "Penyelam peneliti mengukur koloni karang saat survei di Rose Atoll",
+        imageCredit: "Foto: NOAA Fisheries / Damaris Torres-Pulliza, Wikimedia Commons (Domain publik)",
         excerpt: "Mengenal metode yang umum dipakai untuk menilai kondisi terumbu karang, dari transek garis hingga foto bawah air, beserta tantangan nyata di lapangan.",
         body: [
           "Indonesia berada di jantung Segitiga Karang (Coral Triangle), wilayah dengan keanekaragaman karang tertinggi di dunia. Kekayaan ini sekaligus menjadi tanggung jawab: kondisinya perlu dipantau secara berkala agar perubahan dapat terdeteksi sejak dini.",
@@ -335,6 +359,9 @@
         title: "Penelitian Terumbu Karang Buatan: Desain, Material, dan Pemantauan",
         date: "2026-10-25",
         tag: "Terumbu Buatan",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Artificial_fish_reef_in_Futo%2C_Japan.jpg/1280px-Artificial_fish_reef_in_Futo%2C_Japan.jpg",
+        imageAlt: "Modul terumbu buatan dari beton di dasar laut Futo, Jepang",
+        imageCredit: "Foto: Capsellanaut / Wikimedia Commons (CC BY-SA 4.0)",
         excerpt: "Terumbu buatan bisa menjadi alat restorasi yang efektif, asalkan dirancang dan dipantau dengan benar. Inilah hal-hal yang perlu diperhatikan.",
         body: [
           "Terumbu karang buatan adalah struktur yang sengaja ditempatkan di dasar laut untuk menyediakan substrat keras bagi penempelan karang dan habitat bagi ikan serta biota lain. Di Indonesia, terumbu buatan banyak dipakai untuk merehabilitasi terumbu yang rusak, meningkatkan sumber daya perikanan, hingga mengembangkan wisata selam.",
@@ -381,6 +408,7 @@
 
       $("posts").innerHTML = list.length ? list.map(p => `
         <div class="post" data-i="${p.i}">
+        ${p.image ? `<img class="post-cover" src="${p.image}" alt="${p.imageAlt || p.title}" loading="lazy">` : ""}
           <div class="meta"><span class="tag">${p.tag}</span><span>${fmtDate(p.date)}</span><span>· ${readTime(p)}</span></div>
           <h3>${p.title}</h3>
           <p>${p.excerpt}</p>
@@ -394,6 +422,7 @@
       const p = posts[i];
       $("articleMeta").innerHTML = `<span class="tag">${p.tag}</span><span>${fmtDate(p.date)}</span><span>· ${readTime(p)}</span>`;
       $("articleTitle").textContent = p.title;
+  $("articleCover").innerHTML = p.image ? `<img src="${p.image}" alt="${p.imageAlt || p.title}"><figcaption>${p.imageAlt ? p.imageAlt + ". " : ""}${p.imageCredit || ""}</figcaption>` : "";
       $("articleBody").innerHTML = p.body.map(par =>
         par.startsWith("## ") ? `<h2>${par.slice(3)}</h2>` :
         par.startsWith("> ") ? `<blockquote>${par.slice(2)}</blockquote>` : `<p>${par}</p>`
